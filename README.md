@@ -1,6 +1,10 @@
 # Dotfiles
 
 Config files for my hosts
+For local sync use:
+```Shell
+alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+```
 
 Current config:
 
