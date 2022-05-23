@@ -23,11 +23,13 @@ exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -166,6 +168,9 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# Start wallpaper
+exec_always $SHELL -c "feh --bg-fill $(cat ~/.scripts/default-bg.txt | tr -d '\n')"
+
 # Start notification daemon
 
 # Startup daemons for compositor and status bar
@@ -173,3 +178,13 @@ exec_always --no-startup-id pkill picom; picom --no-use-damage
 exec_always --no-startup-id pkill dunst; dunst
 exec_always --no-startup-id pkill polybar; polybar -r
 
+# Lock
+set $lock_cmd "~/.scripts/i3/create_lock_image.sh && i3lock -f -i /tmp/i3_lock_image.png"
+bindsym Control+Mod1+l exec $lock_cmd
+exec xautolock -detectsleep -time 3 -locker $lock_cmd
+
+# screenshot
+bindsym $mod+Shift+s exec "flameshot gui"
+
+# Increase keyboard rate
+exec --no-startup-id xset r rate 250 25
