@@ -41,7 +41,7 @@ bindsym $mod+Return exec kitty
 bindsym $mod+q kill
 
 # start program launcher
-bindcode $mod+40 exec "rofi -modi drun,run -show drun"
+bindcode $mod+40 exec "rofi -modi drun,run -show drun -theme clean"
 
 # change focus
 bindsym $mod+h focus left
