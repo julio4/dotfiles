@@ -85,6 +85,9 @@ alias ga="git add"
 alias gc="git checkout"
 alias gcd="git checkout develop"
 
+# navigation
+alias gp="cd ~/projects"
+
 #arch
 alias paci="sudo pacman -S"
 
