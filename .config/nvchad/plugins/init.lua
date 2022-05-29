@@ -1,4 +1,6 @@
 return {
+   ["wakatime/vim-wakatime"] = {},
+
    ["jose-elias-alvarez/null-ls.nvim"] = {
       after = "nvim-lspconfig",
       config = function()
