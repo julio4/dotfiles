@@ -8,9 +8,9 @@ set $mod Mod4
 font pango:DejaVu Sans Mono 8 
 
 # Gaps size
-gaps outer 5
-gaps inner 24
-gaps top 73
+gaps outer 2
+gaps inner 12
+gaps top 43
 
 # Turn border off
 for_window [class="^.*"] border pixel 0
