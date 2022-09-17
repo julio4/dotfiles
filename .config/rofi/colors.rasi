@@ -6,6 +6,8 @@
     background-solid:     #282828ff; 
     selected-background:  #665c54;
 
+    separatorcolor:       #ffffff;
+
     red:                  #fb4934;
     blue:                 #83a598;
 }
