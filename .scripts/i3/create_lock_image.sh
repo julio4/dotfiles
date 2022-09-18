@@ -8,7 +8,7 @@ rm /tmp/i3_lock_image*
 # to create an image to use for the lock screen.
 # Mode 2 Use wallpaper and resize img to screen resolution + blur
 # Mode 3 Only background no blur  
-mode=3
+mode=2
 
 if [[ $mode == 1 ]]; then
   flameshot full -p /tmp/_i3_lock_image.png

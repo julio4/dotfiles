@@ -178,6 +178,9 @@ exec_always --no-startup-id pkill picom; picom --no-use-damage
 exec_always --no-startup-id pkill dunst; dunst
 exec_always --no-startup-id pkill polybar; polybar -r
 
+# Start ibus
+exec_always --no-startup-id pkill ibus-daemon; ibus-daemon -drxR
+
 # Lock
 set $lock_cmd "~/.scripts/i3/create_lock_image.sh && i3lock -f -i /tmp/i3_lock_image.png"
 bindsym Control+Mod1+l exec $lock_cmd
