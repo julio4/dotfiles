@@ -25,6 +25,7 @@ local sources = {
 
   -- solidity
   b.diagnostics.solhint
+
 }
 
 null_ls.setup {
